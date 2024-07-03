@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài 4</title>
+  </head>
+  <body>
+    <input type="text" id="inputid" placeholder="id" />
+    <input type="text" id="inputname" placeholder="New Mobile" />
+    <input type="text" id="inputcopany" placeholder="Company" />
+    <input type="text" id="inputprice" placeholder="Price" />
+    <button onclick="addNewProduct()">Add</button>
+    <h2>Display all product</h2>
+    <p id="total"></p>
+    <table border="1px">
+      <thead>
+        <tr>
+          <th>Product name</th>
+          <th>Company</th>
+          <th>Price</th>
+          <th colspan="2">Action</th>
+        </tr>
+      </thead>
+      <tbody id="body"></tbody>
+    </table>
+    <script>
+      let id = [1,2,3]
+      let products = ["Xiaomi", "Iphone", "Samsung"];
+      let company = ["CompanyA", "CompanyB", "CompanyC"];
+      let price = ["11TR", "22TR", "33TR"];
+      function addNewProduct() {
+        let id = document.getElementById()
+        let product = document.getElementById("inputname").value;
+        let company = document.getElementById("inputcopany").value;
+        let price = document.getElementById("inputprice").value;
+        if (product === "" && company === "" && price === "") {
+          alert("Information is required");
+        } else {
+          products.push(product.trim());
+          company.push(company.trim());
+          price.push(price.trim());
+          document.getElementById("inputname").value = "";
+          document.getElementById("inputcopany").value = "";
+          document.getElementById("inputprice").value = "";
+          displayProduct();
+          alert("Add new successfully");
+        }
+      }
+      function displayProduct() {
+        let str = "";
+        for (let i = 0; i < products.length; i++) {
+          str += `<tr>
+                          <td>${products[i]}</td>
+                          <td>${company[i]}</td>
+                          <td>${price[i]}</td>
+                          <td><button>Edit</button></td>
+                          <td><button>Delete</button></td>
+                      </tr>`;
+        }
+        document.getElementById("body").innerHTML = str;
+        document.getElementById("total").innerHTML =products.length + " product(s)";
+        document.getElementById("total").innerHTML =products.length + " product(s)";
+        document.getElementById("total").innerHTML =products.length + " product(s)";
+      }
+      displayProduct();
+    </script>
+  </body>
+</html>
